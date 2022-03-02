@@ -144,10 +144,6 @@ $principal: $img1 ;
         background-repeat: no-repeat;
         background-size: cover;
         padding: 50px;
-
-    @else {
-        background-color: $color1;
-    }
 }
 
 .inicio{
@@ -291,8 +287,8 @@ footer{
         display: inline;
         margin: 0 5px;
         }
+        img{
+            max-width: 35px;
+            }
     }
-}
-.sociallinks .socialicons img{
-    max-width: 35px;
 }
