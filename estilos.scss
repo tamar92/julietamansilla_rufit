@@ -1,3 +1,4 @@
+*{margin:0; padding: 0; box-sizing: border-box;}
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,700&family=Roboto+Condensed:ital,wght@0,400;0,700;0,900&display=swap');
 
 $color1: #00ff33;
@@ -5,10 +6,9 @@ $color2: #000;
 $color3: #fff;
 $color4: #c4c4c4;
 
-$font1: 'Roboto Condensed', sans-serif, cursive;
+$font1: 'Roboto Condensed', sans-serif, italic;
 $font2:'Roboto', sans-serif;
 $font3: 'Poppins', sans-serif;
-$fontstile: italic;
 
 $xs: 10px;
 $small: 15px;
@@ -16,23 +16,55 @@ $med: 20px;
 $large: 40px;
 $xl: 50px;
 
-*{
-    margin: 0;
-    padding: 0;
+$img1: imagenprincipal;
+$img2: imagensecundaria;
+$img3: imagenterciaria;
+$principal: imagenprincipal ;
+
+.header-home{   
+    @if $principal==imagenprincipal{
+        background-image: url("../img/imagenprincipal.jpg");
+        height: 500px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: $xl;
+    }
+
+    @else if $principal==$img2 {
+        background-image:url("../img/imagensecundaria.jpg");
+        height: 500px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: $xl;
+    }
+
+    @else if $principal==$img3 {
+        background-image: url("../img/imagenterciaria.jpg");
+        height: 500px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: $xl;
+    }
 }
 
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,700&family=Roboto+Condensed:ital,wght@0,400;0,700;0,900&display=swap');
+
 h1{
-    font-family:$fontstile;
+    font-family: $font1;
     font-weight:700;
-    font-size: $xl;
+    font-size: $large;
     color:$color3;
     text-transform: uppercase;
 }
 
 h2{
-    font-family: $font2;
+    font-family: $font1;
     font-weight:900;
-    font-style: $fontstile;
+    font-style: italic;
     font-size: $large;
     color:$color1;
     text-transform: uppercase;
@@ -45,7 +77,7 @@ h3{
     margin-top: 1.5rem;
     font-family: $font2;
     font-weight: 900;
-    font-size: $large;
+    font-size: 1.5rem;
     font-style: italic;
 }
 
@@ -53,116 +85,77 @@ h3{
     justify-content: right;
 }
 
-nav{
-    background-color: $color2;
-}
-
 .navbar{
     background-color: $color2;
     padding-top:1rem ;
     padding-bottom: 1rem;
     border-bottom: none;
-    a{
+}
+.navbar a{
     text-decoration: none;
     text-transform: uppercase;
     font-family: $font1;
     font-weight: 700;
     font-size: $small;
     margin: 0 1rem ;
-    padding:0.1rem;
-    }
+    padding:rem 0.1rem;
 }
-.navbar{
-    a{
-        &:hover{color:$color1;
-        }
-    }
-}
-
 .nav-item .nav-link{
-    color:$color3;
+    color:rgba(255,255,255,1);
 }
-.active{
+.active {
     color: $color1 !important; 
 }
-
+.navbar a:hover{color:$color1;}
 
 ul{
     list-style-type: none;
     font-size: $med;;
     display:flex;  
-    ul {
-        position: relative;
-        display: none;
-        li {
-            display: block;
-            width:200px;
-            padding: 10px;
-            a {color:$color3}
-        }
+}
+
+ul ul {
+    position: relative;
+    display: none;
+    li {
+    display: block;
+    width:200px;
+    padding: $xs;
+    a {color: white;}
+    }
+    
+
+    ul li:hover ul {
+    position: absolute;
+    display:block;
+    background-color: $color2;
     }
 }
 
+/* HEADER */
 
-ul {
-    li:hover{ 
-        ul {
-        position: absolute;
-        display:block;
-        background-color: $color2;}
-    }
-}
-
-$img1: imagenprincipal;
-$img2: imagensecundaria;
-$img3: imagenterciaria;
-$principal: $img1 ;
-
-.header-home{   
-    @if $principal==$img1{
-        background-image: url("../img/imagenprincipal.jpg");
-        height: 500px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding: 50px;
-    }
-
-    @else if $principal==$img2 {
-        background-image:url("../img/imagensecundaria.jpg");
-        height: 500px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding: 50px;
-    }
-
-    @else if $principal==$img3 {
-        background-image: url("../img/imagenterciaria.jpg");
-        height: 500px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding: 50px;
-}
 
 .inicio{
     display:block;
     width: 100%;
     max-width: 300px;
+    text-align: left;
     h1{ 
-        color: $color3;
-        margin-bottom: 15px;
-        text-align: left;
+        font-family: $font1;
+        font-size: $xl;
+        font-weight:900;
+        font-style: italic;
+        color: white;
+        margin-bottom: $small;
     }
     p{
         display: block;
         font-family: $font3;
-        font-size: 15px;
+        font-size: $small;
         font-weight: 400;
-        color: $color3;
+        color: white;
         text-align: left;
-        margin-bottom: 20px;
+        margin-bottom: $med;
     }
 }
 
@@ -186,7 +179,7 @@ $principal: $img1 ;
     background:$color1;
     font-family: $font1;
     font-weight: 900;
-    font-style: $fontstile;
+    font-style: italic;
     text-decoration: none;
     color: $color2;
 } 
@@ -199,41 +192,135 @@ $principal: $img1 ;
 .sec-verde{
     background-color: $color1;
     margin-bottom: 3%;
-}
-.sec-verde{
     img{
-    max-width: 80%;
-    margin-left: 3rem;
-    }   
+        max-width: 80%;
+        margin-left: 3rem;    
+    }
     h3{
         text-align: center;
-        color: $color2;
+        color: black;
         margin-top: 2rem;
+        font-family: $font2;
         font-weight: 900;
         font-size: 2rem;
     }
 }
 
-.pasosflex {
-    i{
-    color: $color1;}
+.pasosflex i{
+    color: $color1;
+
 }
 
-
-.carrusel-1{ 
+.carrusel-1{
     margin-bottom: 3%;
     h5{
-        color: $color1;
+        color:$color1;
         text-transform:uppercase;
-        font-family: $font1;
-        font-style: $fontstile;
+        font-family: $font2;
+        font-style: italic;
         font-weight: 600;
-        font-size: $med;
-    } 
+        font-size: 1.5rem;  
+    }
 }
 
+/* FIN HEADER */
+
+
+/* _______________PLANES_______________ */
+
+.columnas {
+    max-width: 50rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: center;
+    margin: auto;
+    box-sizing: border-box;
+    margin-bottom: 3%;
+}
+
+.run {
+    background:$color1;
+    color: rgb(0, 0, 0);
+    padding: 32px;
+    margin-top: 5%;
+    max-width: 30%;
+    text-align: center;     
+    border-radius: 1rem;
+    p{
+        font-size: 0.7rem;
+    }
+    h4{
+        margin-bottom: 2rem;
+        font-family: $font1;
+        font-weight: 600;
+        font-size: 1.5rem;
+        
+    }
+    h3{
+        color: black;
+        margin-top: 2rem;
+        font-family: $font2;
+        font-weight: 900;
+        font-size: 2rem;
+    }
+    input{
+        padding: 4% 7%;
+        border-radius: 1rem;
+        background:$color2;
+        color: $color1;
+        font-family: $font1;
+        font-weight: 900;
+        font-style: italic;
+        text-transform: uppercase;
+    
+    }
+}
+
+.black {
+    background: rgb(0, 0, 0);
+    color: white;
+    padding: 32px;
+    margin-top: 5%;
+    max-width: 30%;
+    text-align: center;
+    border-radius: 1rem;
+    p{
+        font-size: 0.7rem;
+        color: $color1;
+    }
+    h4{
+        margin-bottom: 2rem;
+        color: $color1;
+        font-family: $font1;
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+    h3{
+        margin-top: 2rem;
+        color: $color1;
+        font-family: $font2;
+        font-weight: 900;
+        font-size: 2rem;
+    
+    }
+    input{
+        padding: 4% 7%;
+        border-radius: 1rem;
+        background:$color1;    
+        font-family: $font1;
+        font-weight: 900;
+        font-style: italic;
+        text-transform: uppercase;
+    
+    }
+}
+
+
+/* FOOTER */
+
 footer{
-    background-color:$color1;
+    background-color:$color1 ;
     text-align: center;
     padding: 1em 0;
     width: 100%;
@@ -260,35 +347,146 @@ footer{
 }
 .institucional{ 
     p{  
-    font-size: $med;    
-    font-weight: 300;
-    }
+    font-size: $small;    
+    font-weight: 300;}
     a{  
-    font-size: $med;    
-    font-weight: 300;
-    text-decoration: none;
-    color: $color2;
-    display: inline-block;
+        font-size: $small;    
+        font-weight: 300;
+        text-decoration: none;
+        color: $color2;
+        display: inline-block;
     }
 }
 
-.sociallinks{
-    .socialicons{
-        display: flex;
-        justify-content: center;
-        padding: 0;
-    }
-}  
 
-.sociallinks{ 
-    .socialicons{ 
-        li{
+.sociallinks .socialicons{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    li{
         list-style: none;
         display: inline;
         margin: 0 5px;
-        }
-        img{
-            max-width: 35px;
-            }
     }
+    img{
+        max-width: 35px;
+    }
+}   
+
+
+/* ________________ENTRENAMIENTO____________________ */
+
+.metodos{
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    div
+    {
+    height: auto;
+    width: 35%;
+    }
+    h3{
+        font-family:$font1;
+        font-size: 2rem;
+        font-weight: 700;
+        font-style: italic;
+        margin-top: 1rem;
+    }
+    p{
+        margin: 0 1rem 1rem 0;
+    }
+}
+
+.elementos{
+    background-color:#f1f1f1;
+    height: 1000px;
+    background-size: cover;
+}
+
+.merch{
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    grid-template-rows:  repeat(3, 250px);
+    grid-column-gap: 2%;
+    grid-row-gap:4%;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.merch1,
+.merch2,
+.merch3,
+.merch4,
+.merch5,
+.merch6,
+.merch7,
+.merch8,
+.merch9{
+    background-color: $color3;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 2rem 1rem;  
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center; 
+    
+}
+
+.merch1{
+    background-image: url('../img/merch/remerah.png');
+}
+.merch2{
+    background-image: url('../img/merch/botella.png');
+}
+.merch3{
+    background-image: url('../img/merch/remeram.png');
+}
+.merch4{
+    background-image: url('../img/merch/remeralargah.png');
+}
+.merch5{
+    background-image: url('../img/merch/kettlebel.png');
+}
+.merch6{
+    background-image: url('../img/merch/Womens_Bomber.png');
+}
+.merch7{
+    background-image: url('../img/merch/Mens_Shorts.png');
+}
+.merch8{
+    background-image: url('../img/merch/guantes.png');
+}
+.merch9{
+    background-image: url('../img/merch/Womens_Legging.png');
+}
+
+/* ________________FIN ENTRENAMIENTO____________________ */
+
+
+/* _____________________RUNFIT____________________ */
+
+.columna1, .columna2{
+    margin-top: 3%;
+}
+
+.runfit{
+    display:inline;
+    width: 100%;
+    h3{
+        font-family:$font1;
+        font-size: 2rem;
+        font-weight: 700;
+        font-style: italic;
+        margin-top: 1rem;
+    }
+    p{
+        margin: 0 1rem 1rem 0;
+    }
+    
+}
+/* ________________FIN RUTFIN__________________ */
+
+
+.form-check-input:checked {
+    background-color: $color1 ;
+    border-color: $color1 !important;
 }
